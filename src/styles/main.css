@@ -1,13 +1,29 @@
-main {
-    width: 80vw;
-    height: 600px;
-    border: 2px solid darkgray;
+@media screen and (max-device-width: 600px) {
+    .sideBar {
+        display: none;
+    }
+    #root {
+        flex: 1;
+    }
+}
 
+main {
+    height: 600px;
     display: flex;
-    flex-direction: column;
-    margin: 20px auto;
 }
 
 #root {
     display: flex;
+    flex-direction: column;
+    width: 67%;
+    min-width: 600px;
+    border: 2px solid darkgray;
 }
+
+.sideBar {
+    width: 30%;
+    margin-left: auto;
+    background-color: lightgrey;
+    border: 2px solid darkgray;
+}
+
