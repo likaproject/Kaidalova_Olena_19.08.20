@@ -1,0 +1,16 @@
+#list {
+    list-style: none;
+}
+
+.favListItem {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+li.favListItem::before {
+    content: '- ';
+}
+
+.favorite {
+    fill: yellow;
+}

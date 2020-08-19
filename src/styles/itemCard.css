@@ -1,0 +1,39 @@
+.itemStyle {
+    height: 200px;
+    color: #000000;
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: darkgray;
+    padding: 15px;
+    margin-bottom: 3%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0 0 20%;
+}
+
+.innerDiv {
+    width: 150px;
+    height: 100px;
+    border: 2px solid darkgray;
+    position: relative;
+}
+
+.preview {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.star {
+    height: 35px;
+    position: absolute;
+    top: -15px;
+    left: 125px;
+}
+
+.favorite {
+    fill: yellow;
+}
