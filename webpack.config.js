@@ -11,4 +11,16 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
     ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
+            }
+        ],
+    },
 };
