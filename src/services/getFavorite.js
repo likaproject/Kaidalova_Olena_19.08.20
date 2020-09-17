@@ -1,12 +1,13 @@
 'use strict';
 
-function getFavorite(localField, fullList) {
-    return JSON.parse(localStorage.getItem(localField))
+function getFavorite() {
+    const favList = JSON.parse(localStorage.getItem('favorite'));
+
+    return favList
         ||
-        fullList.filter(film => {
+        JSON.parse(localStorage.getItem('fullList')).filter(film => {
             return film.isFavorite === true;
-        })
-        || [];
+        });
 }
 
 export default getFavorite;

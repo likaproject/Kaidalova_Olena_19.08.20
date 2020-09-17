@@ -1,16 +1,20 @@
 #list {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .favListItem {
-    padding-left: 1em;
-    text-indent: -1em;
-}
-
-li.favListItem::before {
-    content: '- ';
+    display: flex;
+    justify-content: space-between;
 }
 
 .favorite {
     fill: yellow;
+}
+
+[data-id] {
+    color: red;
+    margin-left: 20px;
 }

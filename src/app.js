@@ -19,35 +19,25 @@ getData('http://my-json-server.typicode.com/moviedb-tech/movies/list')
         return list;
     })
     .then((list) => {
-        const favorite = getFavorite('favorite', list);
+        localStorage.setItem('fullList', JSON.stringify(list));
+        const favorite = getFavorite();
 
         container.addEventListener('click', (event) => {
             let filmId = event.target.id;
             let film = list[filmId - 1];
 
-            const isInFavoriteList = (favorite.some(film => {
+            const isInFavoriteList = favorite.some(film => {
                 return film.id === +filmId;
-            }));
+            });
 
             if(event.target.classList.contains('starBody')
                 && !event.target.classList.contains('favorite')
                 && !isInFavoriteList) {
-                film.isFavorite = true;
-                favorite.push(film);
-                favList(favorite); // render list in a sideBar
-                localStorage.setItem('favorite', JSON.stringify(favorite));
-                event.target.classList.add('favorite');
-
-            } else if(event.target.classList.contains('starBody')
-                && event.target.classList.contains('favorite')
-                && isInFavoriteList) {
-                film.isFavorite = false;
-                favorite.splice(favorite.indexOf(film), 1);
-                favList(favorite); // render list in a sideBar
-                localStorage.setItem('favorite', JSON.stringify(favorite));
-                event.target.classList.remove('favorite');
+                favList.addToFavList(event, film);
+            } else if(event.target.classList.contains('starBody')) {
+                favList.deleteFromFavList(event, filmId, film);
             }
         });
 
-        favList(favorite);
+        favList.renderList(favorite);
     });
