@@ -1,5 +1,3 @@
-# Kaidalova_Olena_19.08.20
-
 Run:  
 
 **npm install**   
