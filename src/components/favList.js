@@ -29,7 +29,7 @@ function favList(list) {
         path.classList.add('favorite');
     });
 }
-
+// ToDo: implement button to clear favorite list
 function deleteFromFavList(event, ...rest) {
     const filmId = event.target.closest('div').dataset.id || rest[0];
     const favorite = getFavorite();
