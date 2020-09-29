@@ -7,6 +7,11 @@
     }
 }
 
+html, body, main {
+    margin: 0;
+    padding: 0;
+}
+
 main {
     height: 600px;
     display: flex;

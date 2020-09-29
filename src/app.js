@@ -2,10 +2,13 @@
 
 import getData from './services/getData';
 import getFavorite from './services/getFavorite';
+import getFilmInfo from './services/getFilmInfo';
 import itemCard from './components/itemCard';
 import favList from './components/favList';
+import itemDetailsModal from "./components/itemDetailsModal";
 import './styles/itemCard.css';
 import './styles/favList.css';
+import './styles/itemDetailsModal.scss';
 
 const container = document.getElementById('container');
 
@@ -23,7 +26,7 @@ getData('http://my-json-server.typicode.com/moviedb-tech/movies/list')
         const favorite = getFavorite();
 
         container.addEventListener('click', (event) => {
-            let filmId = event.target.id;
+            let filmId = event.target.id || event.target.closest('[data-id]').dataset.id;
             let film = list[filmId - 1];
 
             const isInFavoriteList = favorite.some(film => {
@@ -36,6 +39,11 @@ getData('http://my-json-server.typicode.com/moviedb-tech/movies/list')
                 favList.addToFavList(event, film);
             } else if(event.target.classList.contains('starBody')) {
                 favList.deleteFromFavList(event, filmId, film);
+            } else {
+                getFilmInfo(filmId).then(film => {
+                    let modal = new itemDetailsModal(film);
+                    modal.open();
+                });
             }
         });
 

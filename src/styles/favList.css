@@ -14,7 +14,7 @@
     fill: yellow;
 }
 
-[data-id] {
+li > [data-id] {
     color: red;
     margin-left: 20px;
 }

@@ -8,8 +8,8 @@ export default function itemCard(id, name, year, img, isFavorite) {
 
     let p = document.createElement('P');
     let span = document.createElement('SPAN');
-    let nodeName = document. createTextNode(name);
-    let nodeYear = document. createTextNode(year);
+    let nodeName = document.createTextNode(name);
+    let nodeYear = document.createTextNode(year);
     p.appendChild(nodeName);
     span.appendChild(nodeYear);
 
@@ -38,5 +38,6 @@ export default function itemCard(id, name, year, img, isFavorite) {
     outerDiv.appendChild(p);
     outerDiv.appendChild(span);
     outerDiv.setAttribute('class', 'itemStyle');
+    outerDiv.setAttribute('data-id', `${id}`);
     root.appendChild(outerDiv);
 };
